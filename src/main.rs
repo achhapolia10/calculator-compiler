@@ -167,7 +167,7 @@ fn parser(tokens: &Vec<String>, token_types: &Vec<u8>) -> (Vec<String>, Vec<u8>)
             || *token_type == 4
             || *token_type == 5
         {
-            if *token_type > temp_last_inserted_type || last_inserted_type == 8 {
+            if *token_type > temp_last_inserted_type || temp_last_inserted_type == 8 {
                 temp_stack.push(token.clone());
                 temp_stack_type.push(*token_type);
                 temp_last_inserted_type = *token_type;
