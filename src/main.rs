@@ -23,7 +23,7 @@ fn tokenizer(expression: String) -> (Vec<String>, Vec<u8>) {
         let ch = character as u8;
         let length = current_continue_token.chars().count();
         // Check for numbers
-        if ch == 32 || ch == 10 {
+        if ch == 32 || ch == 10 || ch == 13 {
             if continue_forward {
                 tokens.push(current_continue_token.clone());
                 token_type.push(0);
@@ -261,4 +261,6 @@ fn main() {
     println!("Tokenized: {:?}, {:?}", tokens, token_types);
     println!("Parsed: {:?}, {:?}", postfix_tokens, postfix_token_types);
     println!("Result: {}", result);
+    let mut input1 = String::new();
+    io::stdin().read_line(&mut input1);
 }
